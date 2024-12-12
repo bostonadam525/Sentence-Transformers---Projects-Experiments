@@ -15,4 +15,5 @@
 
 
 # Resources
-* (Making benchmark of different embedding models)[https://medium.com/@autorag/making-benchmark-of-different-embedding-models-1c327a0dae1f]
+* [Making benchmark of different embedding models](https://medium.com/@autorag/making-benchmark-of-different-embedding-models-1c327a0dae1f)
+* [AutoRAG](https://github.com/Marker-Inc-Korea/AutoRAG?tab=readme-ov-file)
