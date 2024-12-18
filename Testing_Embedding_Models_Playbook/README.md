@@ -15,6 +15,6 @@
 
 
 # Resources
-* (AutoRAG)[https://github.com/Marker-Inc-Korea/AutoRAG?tab=readme-ov-file]
-* (Making benchmark of different embedding models)[https://medium.com/@autorag/making-benchmark-of-different-embedding-models-1c327a0dae1f]
-* (Text Embeddings Fail to Capture Word Order and How to Fix It)[https://jina.ai/news/text-embeddings-fail-to-capture-word-order-and-how-to-fix-it/]
+* [AutoRAG](https://github.com/Marker-Inc-Korea/AutoRAG?tab=readme-ov-file)
+* [Making benchmark of different embedding models](https://medium.com/@autorag/making-benchmark-of-different-embedding-models-1c327a0dae1f)
+* [Text Embeddings Fail to Capture Word Order and How to Fix It](https://jina.ai/news/text-embeddings-fail-to-capture-word-order-and-how-to-fix-it/)
