@@ -52,3 +52,4 @@
   * By focusing on hard negatives, the model learns to distinguish between similar but different classes or items, leading to better performance. 
 * **Example**
   * In object detection, hard negative mining might involve selecting bounding boxes that are similar to the target object but are not the correct object. 
+
