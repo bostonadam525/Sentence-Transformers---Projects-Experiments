@@ -5,11 +5,23 @@
 # What is GPL?
 * Generative Pseudo Labeling (GPL) is a technique for domain adaptation in dense retrieval, using a cross-encoder to generate pseudo-relevance labels for queries and documents.
 
+---
+# How do we use GPL?
+1. **Fine tune a pre-trained model**
+   * "Pre-trained" is a transformers model that has NOT been pretrained already for semantic search.
+   * Example: Take `bert-base` model and fine-tune it for semantic search.
+     * The results would probably be "satisfactory" as `bert-base` is not the most ideal model for semantic search adaptation.
+
+ 2. **Domain Adapation**
+  * You already have a semantic search pre-trained model.
+  * As an example, lets say the domain is very specific such as **COVID-19** but the model is high dimensional and trained on general medical data so it may not be able to recognize, parse, or infer the specific terminology such as acronyms, abbreviations and colloquial language. 
+
+---
 ## Why do we need GPL?
-* Large pre-trained embedding models perform well in high dimensional spaces but often perform poorly when shifted to domain specific data such as COVID-19 or other domains that have specific terminology, acronyms, and abbreviations.
-* Thus, there is a need to create a method that can effectively **adapt dense retrieval models to new domains without requiring large amounts of labeled data.** \
+* Large pre-trained embedding models perform well in high dimensional spaces but often perform **poorly when shifted to domain specific data** such as COVID-19 or other domains that have specific terminology, acronyms, and abbreviations.
+* Thus, there is a need to create a method that can effectively **adapt dense retrieval models to new domains without requiring large amounts of labeled data.** 
   * GPL (Generative Pseudo Labeling), is one such method.
-  * GPL is an unsupervised domain adaptation technique for dense retrieval models that combines a query generator with pseudo-labeling.
+  * GPL is an **unsupervised domain adaptation technique** for dense retrieval models that combines a query generator with pseudo-labeling.
   * GPL uses a T5 model to generate queries for a target domain.
   * It retrieves negative passages using an existing dense retrieval model and uses a cross-encoder to score (query, passage) pairs.
 * GPL outperforms other domain adaptation methods.
@@ -17,16 +29,24 @@
 
 ![image](https://github.com/user-attachments/assets/0b4c1f8f-2171-4f7d-bd26-fd260456f021)
 
-
+### Examples of use cases for GPL
+* There are numerous use cases where you may have large amounts of unlabeled data and need to generate labels for this data.
+  * Example 1: Text scraped from web pages
+  * Example 2: PDF documents
+  * Example 3: Medical Records
+  * ...etc...
+* Let's say our use case is to build a semantic search application for "German Finance News Articles".
 
 
 ## What is the goal of GPL?
 * The goal is to adapt a dense retrieval model (which maps queries and documents to vectors) to a new domain or dataset where labeled data is scarce. 
-* **How it works**
+
+## Training Process for GPL
+* Each step of the process requires a pre-trained model.
   1. **Query Generation**
      * A model (like a T5 encoder-decoder) generates synthetic queries for each document in the target domain. 
   2. **Negative Mining**
-     * A pre-trained dense retrieval model is used to find similar (but not relevant) documents (negative passages) for each generated query. 
+     * A pre-trained dense retrieval model is used to find **similar** (but not relevant) documents (negative passages) for each generated query. 
   3. **Pseudo Labeling**
      * A cross-encoder model is used to assign relevance scores to the query-document pairs, creating pseudo-labels that represent the model's confidence in the relevance of a query-document pair. 
   4. **Fine-tuning**
