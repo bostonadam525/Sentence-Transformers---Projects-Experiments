@@ -34,9 +34,8 @@
   * Example 1: Text scraped from web pages
   * Example 2: PDF documents
   * Example 3: Medical Records
+  * Example 4: Financial Records
   * ...etc...
-* Let's say our use case is to build a semantic search application for "German Finance News Articles".
-
 
 ## What is the goal of GPL?
 * The goal is to adapt a dense retrieval model (which maps queries and documents to vectors) to a new domain or dataset where labeled data is scarce. 
